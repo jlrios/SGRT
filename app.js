@@ -8,6 +8,9 @@ var port = process.env.PORT || 8080;
 app.set("views", __dirname + "/app/views");
 app.set("view engine", "jade");
 
+// Se le indica a express que debe utilizar el directorio public.
+app.use(express.static(__dirname + '/public'));
+
 // Carga de rutas.
 require("./app/routes")(app);
 
