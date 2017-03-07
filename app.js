@@ -44,8 +44,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Carga de rutas.
-require("./app/routes")(app, passport);
+require("./config/routes")(app, passport);
 
-http.listen(port, function() {
-  console.log("SGRT por el puerto *:8080...");
-});
+http.listen(port);
+console.log("SGRT por el puerto *:8080...");

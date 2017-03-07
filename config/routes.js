@@ -2,8 +2,8 @@
 
 module.exports = function(app, passport) {
 
-  var UserCtrl = require('./controllers/Users.js');
-  var User = require('./models/User');
+  var UserCtrl = require('../app/controllers/Users');
+  var User = require('../app/models/User');
 
   app.get("/", function(req, res) {
     res.render('index', {
@@ -23,8 +23,8 @@ module.exports = function(app, passport) {
   });
 
   app.get('/main', function(req, res){
-    res.render('main', {
-      title:"Hércules | Dashboard",
+    res.render('dashboard/dashboard', {
+      title:"SGRT | Dashboard",
       user:req.user,
       view:"dashboard",
       titleView:"Dashboard"
