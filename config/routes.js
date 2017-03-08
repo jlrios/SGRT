@@ -37,7 +37,7 @@ module.exports = function(app, passport) {
     failureRedirect:"/",
     failureFlash:true
   }));
-  
+
 } // Fin module.
 
 function isLoggedIn(req, res, next) {

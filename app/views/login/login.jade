@@ -1,54 +1,23 @@
-div(class="modal fade" tabindex="-1" role="dialog" id="loginModal" )
-  div(class="modal-dialog modal-sm")
-    div(class="modal-content")
+div(id="loginModal" class="modal modal-fixed-footer")
+  div(class="modal-content")
+    h4 SGRT
+    h5 Iniciar sesión
     
-      div(class="modal-header")
-        button(type="button" class="close" data-dismiss="modal" aria-label="Cerrar")
-          span(aria-hidden='true') &times;
-        i(class="fa fa-sign-in fa-3x" aria-hidden="true" style="float: left; padding-right: 10px;")
-        h2(class="modal-title") SGRT
-        h4(class="modal-title") Sistema para la Gestión de Reportes de Trabajo
-    
-      div(class="modal-body")
-        form(class="form-horizontal" action="/login" method="post")
-          h3 Iniciar sesión
-          div(class="form-group")
-            div(class="col-sm-12")
-              //div(class="input-group")
-                //span(class="input-group-addon")
-                  //i(class="glyphicon glyphicon-envelope")
-              input(id="correoElectronico" type="text" class="form-control" name="correoElectronico")
-              label(for="correoElectronico" class="") Correo Electrónico
-          div(class="form-group")
-            div(class="col-sm-12")
-              div(class="input-group")
-                //span(class="input-group-addon")
-                  //i(class="glyphicon glyphicon-lock")
-                input(type="password" class="form-control" placeholder="Contraseña" name="contrasena")
-          div(class="form-group")
-            div(class="col-sm-12")
-              input(type="checkbox" class="js-switch")
-              label(style="padding-left: 10px;") Recordar mis datos
-          div(class="form-group")
-            div(class="col-sm-12")
-              input(type="submit" value="Aceptar" class="btn btn-primary btn-block")
-    
-      div(class="modal-footer")
-        | ¿No puede iniciar sesión?
-        br
-        a(href="#") Recuperar contraseña
-
-script.
-  $(window).load(function() {
-    $('#loginModal').modal('show');
-  });
-
-  $(document).ready(function() {
-    // Aplicar estílo a los Checkboxes.
-    var checkBox = document.querySelector('.js-switch');
-    var init = new Switchery(checkBox, {size: 'small'});
-
-    $('#loginModal').on('hidden.bs.modal', function (e) {
-      window.location.href="/";
-    });
+    div(class="row")
+      form(class="col s12")
+        div(class="row")
+          div(class="input-field col s12")
+            input(id="correoElectronico" type="email" class="validate")
+            label(for="correoElectronico") Correo Electrónico
+          div(class="input-field col s12")
+            input(id="contrasena" type="password")
+            label(for="contrasena") Contraseña
+  
+  div(class="modal-footer")
+    a(href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat") Agree
+  
+script.    
+  $(document).ready(function(){
+    $('#loginModal').modal();
+    $('#loginModal').modal('open');
   });
