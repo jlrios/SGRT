@@ -2,28 +2,28 @@
 
 module.exports = function(app, passport) {
 
-  var UserCtrl = require('../app/controllers/Users');
-  var User = require('../app/models/User');
+  var UserCtrl = require("../app/controllers/Users");
+  var User = require("../app/models/User");
 
   app.get("/", function(req, res) {
-    res.render('index', {
+    res.render("index", {
       title: "PROTESA | SGRT"
     });
   });
 
-  app.get('/login', function(req, res){
-    res.render('login', {
+  app.get("/login", function(req, res){
+    res.render("login", {
       title:"SGRT | Iniciar sesión"
     });
   });
 
-  app.get('/logout', function(req, res){
+  app.get("/logout", function(req, res){
     req.logout();
-    res.redirect('/');
+    res.redirect("/");
   });
 
-  app.get('/main', function(req, res){
-    res.render('dashboard/dashboard', {
+  app.get("/main", isLoggedIn, function(req, res){
+    res.render("dashboard/dashboard", {
       title:"SGRT | Dashboard",
       user:req.user,
       view:"dashboard",
@@ -32,9 +32,15 @@ module.exports = function(app, passport) {
   });
 
   // Login post.
-  app.post('/login', passport.authenticate('local-login', {
-    successRedirect:'/main',
-    failureRedirect:'/',
+  app.post("/login", passport.authenticate("local-login", {
+    successRedirect:"/main",
+    failureRedirect:"/",
     failureFlash:true
   }));
+  
 } // Fin module.
+
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated()) return next();
+	res.redirect("/");
+}

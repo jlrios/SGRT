@@ -1,7 +1,7 @@
-// ./app/models/Userj.s
+// /app/models/Userj.s
 
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
+var mongoose = require("mongoose");
+var bcrypt = require("bcrypt-nodejs");
 
 var userSchema = mongoose.Schema({
   local:{
@@ -23,4 +23,4 @@ userSchema.methods.validPassword = function(contrasena){
   return bcrypt.compareSync(contrasena, this.local.contrasena);
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
