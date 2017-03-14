@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    include includes/metas
+    
+    title=title
+
+    link(href="/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/css/font-awesome/font-awesome.min.css" rel="stylesheet")
+    link(href="/css/nprogress/nprogress.css" rel="stylesheet")
+    link(href="/css/custom.min.css" rel="stylesheet")
+
+  body(class="nav-md")
+    div(class="container body")
+      div(class="main_container")
+        div(class="col-md-3 left_col")
+          div(class="left_col scroll-view")
+            div(class="navbar nav_title" style="border: 0;")
+              a(href="index.html" class="site_title")
+                i(class="fa fa-paw")
+                  span SGRT
+  
+            div(class="clearfix")
+            
+            // Profile menú.
+            div(class="profile clearfix")
+              div(class="profile_pic")
+                img(src="/images/user.png" alt="..." class="img-circle profile_img")
+              div(class="profile_info")
+                span Welcome,
+                 h2 John Doe
+              div(class="clearfix")
+            
+            br 
+            
+            include menus/side-bar.jade
+            include menus/top-navigation.jade
+    
+    script(src="/js/jquery.min.js")
+    script(src="/js/bootstrap.min.js")
+    script(src="/js/fastclick/fastclick.js")
+    script(src="/js/nprogress/nprogress.js")
+    script(src="/js/custom.min.js")

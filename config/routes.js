@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
   });
 
   app.get("/main", isLoggedIn, function(req, res){
-    res.render("dashboard/dashboard", {
+    res.render("main", {
       title:"SGRT | Dashboard",
       user:req.user,
       view:"dashboard",
@@ -37,7 +37,7 @@ module.exports = function(app, passport) {
     failureRedirect:"/",
     failureFlash:true
   }));
-  
+
 } // Fin module.
 
 function isLoggedIn(req, res, next) {
