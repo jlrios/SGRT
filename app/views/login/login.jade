@@ -47,7 +47,7 @@ script.
     var checkBox = document.querySelector('.js-switch');
     var init = new Switchery(checkBox, {size: 'small'});
 
-    $('#loginModal').on('hidden.bs.modal', function (e) {
+    $('#loginModal').on('hidden.bs.modal', function () {
       window.location.href="/";
     });
   });
