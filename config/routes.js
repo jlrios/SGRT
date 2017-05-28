@@ -1,5 +1,3 @@
-// ./app/routes.js.
-
 module.exports = function(app, passport) {
 
   var UserCtrl = require("../app/controllers/Users");
@@ -13,7 +11,7 @@ module.exports = function(app, passport) {
 
   app.get("/login", function(req, res){
     res.render("login", {
-      title:"SGRT | Iniciar sesión"
+      title: "SGRT | Iniciar sesión"
     });
   });
 
@@ -24,18 +22,18 @@ module.exports = function(app, passport) {
 
   app.get("/main", isLoggedIn, function(req, res){
     res.render("main", {
-      title:"SGRT | Dashboard",
-      user:req.user,
-      view:"dashboard",
-      titleView:"Dashboard"
+      title: "SGRT | Dashboard",
+      user: req.user,
+      view: "dashboard",
+      titleView: "Dashboard"
     });
   });
 
   // Login post.
   app.post("/login", passport.authenticate("local-login", {
-    successRedirect:"/main",
-    failureRedirect:"/",
-    failureFlash:true
+    successRedirect: "/main",
+    failureRedirect: "/",
+    failureFlash: true
   }));
 
 } // Fin module.

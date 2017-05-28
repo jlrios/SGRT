@@ -1,17 +1,15 @@
-// /app/models/Userj.s
-
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 
 var userSchema = mongoose.Schema({
   local:{
-    correoElectronico:String,
+    correoElectronico: String,
     contrasena: String,
-    nombre:String,
-    primerApellido:String,
-    segundoApellido:String,
-    perfil:Number,
-    activo:Number
+    nombre: String,
+    primerApellido: String,
+    segundoApellido: String,
+    perfil: Number,
+    activo: Number
   }
 });
 

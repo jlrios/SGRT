@@ -1,5 +1,3 @@
-// /app/controllers/users.js
-
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
@@ -15,7 +13,7 @@ exports.blankUser = function(req, res) {
     user:req.user,
     view:"blankUser",
     titleView:"Agregar usuario"
-  });  
+  });
 }
 
 // Agregar un nuevo usuario, también llama a la función para listar a los usuarios, después

@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app="sgrt")
   head
     include includes/metas
     
@@ -10,7 +10,10 @@ html
     link(href="/css/nprogress/nprogress.css" rel="stylesheet")
     link(href="/css/custom.min.css" rel="stylesheet")
 
-  body(class="nav-md footer_fixed")
+    script(src="/js/angular.min.js")
+    script(src="/js/angular-route.min.js")
+    
+  body(class="nav-md footer_fixed" ng-controller="mainController")
     div(class="container body")
       div(class="main_container")
         div(class="col-md-3 left_col")
@@ -46,3 +49,5 @@ html
     script(src="/js/fastclick/fastclick.js")
     script(src="/js/nprogress/nprogress.js")
     script(src="/js/custom.min.js")
+    
+    script(src="/components/app.js")
