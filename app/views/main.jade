@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="sgrt")
+html
   head
     include includes/metas
     
@@ -9,9 +9,7 @@ html(ng-app="sgrt")
     link(href="/css/font-awesome/font-awesome.min.css" rel="stylesheet")
     link(href="/css/nprogress/nprogress.css" rel="stylesheet")
     link(href="/css/custom.min.css" rel="stylesheet")
-
-    script(src="/js/angular.min.js")
-    script(src="/js/angular-route.min.js")
+    link(href="/css/switchery/switchery.min.css" rel="stylesheet")
     
   body(class="nav-md footer_fixed")
     div(class="container body")
@@ -43,11 +41,54 @@ html(ng-app="sgrt")
         include footer
         
         include configure/configure-company
+        
+    // Modal para seleccionar cliente y ciclo.
+    div(id="configuracionInicialModal" class="modal fade" tabindex="-1" role="dialog")
+      div(class="modal-dialog modal-sm")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4(class="modal-title") Seleccionar cliente y ciclo
+          div(class="modal-body")
+            p Seleccione el cliente y el ciclo con los que desea trabajar.
+            form
+              div(class="form-group")
+                label(for="cliente") Cliente
+                select(id="cliente" class="form-control")
+                  option EMPRESA 1
+                  option EMPRESA 2
+                  option EMPRESA 3
+                  option EMPRESA N
+              div(class="form-group")
+                label(for="ciclo") Ciclo
+                select(id="ciclo" class="form-control")
+                  option 2017
+                  option 2016
+                  option 2015
+                  option 2014...
+              div(class="form-group")
+                label
+                  input(type="checkbox" class="js-switch" checked) 
+                  span(style="padding-left: 10px;") Recordar estos datos
+          div(class="modal-footer")
+            button(type="button" class="btn btn-primary" data-dismiss="modal") Aceptar 
     
     script(src="/js/jquery.min.js")
     script(src="/js/bootstrap.min.js")
     script(src="/js/fastclick/fastclick.js")
     script(src="/js/nprogress/nprogress.js")
     script(src="/js/custom.min.js")
+    script(src="/js/switchery/switchery.min.js")
     
-    script(src="/js/components/app.js")
+    script.
+      $(window).load(function() {
+        $('#configuracionInicialModal').modal('show');
+      });
+      
+      $(document).ready(function() {
+        // Aplicar estílo a los Checkboxes.
+        var checkBox = document.querySelector('.js-switch');
+        var init = new Switchery(checkBox, {size: 'small'});
+      });
+      

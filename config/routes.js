@@ -1,36 +1,33 @@
 module.exports = function(app, passport) {
 
-  var UserCtrl = require("../app/controllers/Users");
-  var User = require("../app/models/User");
-
-  app.get("/", function(req, res) {
-    res.render("index", {
-      title: "PROTESA | SGRT"
+  app.get('/', function(req, res) {
+    res.render('index', {
+      title: 'PROTESA | SGRT'
     });
   });
 
-  app.get("/login", function(req, res){
-    res.render("login", {
-      title: "SGRT | Iniciar sesión"
+  app.get('/login', function(req, res){
+    res.render('login', {
+      title: 'SGRT | Iniciar sesión'
     });
   });
 
-  app.get("/logout", function(req, res){
+  app.get('/main', isLoggedIn, function(req, res){
+    res.render('main', {
+      title: 'SGRT | Dashboard',
+      user: req.user,
+      view: 'dashboard',
+      titleView: 'Dashboard'
+    });
+  });
+
+  app.get('/logout', function(req, res){
     req.logout();
     res.redirect("/");
   });
 
-  app.get("/main", isLoggedIn, function(req, res){
-    res.render("main", {
-      title: "SGRT | Dashboard",
-      user: req.user,
-      view: "dashboard",
-      titleView: "Dashboard"
-    });
-  });
-
   // Login post.
-  app.post("/login", passport.authenticate("local-login", {
+  app.post('/login', passport.authenticate("local-login", {
     successRedirect: "/main",
     failureRedirect: "/",
     failureFlash: true

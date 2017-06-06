@@ -1,17 +1,17 @@
-var express = require("express");
+var express = require('express');
 var app = express();
 
-var http = require("http").Server(app);
+var http = require('http').Server(app);
 var port = process.env.PORT || 8080;
 
-var mongoose = require("mongoose");
-var passport = require("passport");
-var flash = require("connect-flash");
-var logger = require("morgan");
-var bodyParser = require("body-parser");
-var session = require("express-session");
-var cookieParser = require("cookie-parser");
-var dataBase = require("./config/database");
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var dataBase = require('./config/database');
 
 // Establecer la carpeta para las vistas y el engine para las mismas.
 app.set("views", __dirname + "/app/views");
