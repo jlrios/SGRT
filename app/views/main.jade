@@ -10,6 +10,7 @@ html
     link(href="/css/nprogress/nprogress.css" rel="stylesheet")
     link(href="/css/custom.min.css" rel="stylesheet")
     link(href="/css/switchery/switchery.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-select/bootstrap-select.min.css")
     
   body(class="nav-md footer_fixed")
     div(class="container body")
@@ -30,6 +31,7 @@ html
               div(class="profile_info")
                 span Bienvenido
                  h2 #{user.local.nombre} #{user.local.primerApellido} 
+                 
               div(class="clearfix")
             
             br 
@@ -69,7 +71,7 @@ html
                   option 2014...
               div(class="form-group")
                 label
-                  input(type="checkbox" class="js-switch" checked) 
+                  input(type="checkbox" class="js-switch") 
                   span(style="padding-left: 10px;") Recordar estos datos
           div(class="modal-footer")
             button(type="button" class="btn btn-primary" data-dismiss="modal") Aceptar 
@@ -80,15 +82,9 @@ html
     script(src="/js/nprogress/nprogress.js")
     script(src="/js/custom.min.js")
     script(src="/js/switchery/switchery.min.js")
+    script(src="/js/bootstrap-select/bootstrap-select.min.js")
     
     script.
       $(window).load(function() {
         $('#configuracionInicialModal').modal('show');
       });
-      
-      $(document).ready(function() {
-        // Aplicar estílo a los Checkboxes.
-        var checkBox = document.querySelector('.js-switch');
-        var init = new Switchery(checkBox, {size: 'small'});
-      });
-      

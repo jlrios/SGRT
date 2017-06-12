@@ -1,2 +1,7 @@
 div(class="right_col")
-  include ../dashboard/dashboard
+  if view == "dashboard"
+    include ../dashboard/dashboard
+  if view == "calendar"
+    include ../calendar/calendar
+  if view == "reports"
+    include ../reports/reports

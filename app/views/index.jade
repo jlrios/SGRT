@@ -1,26 +1,27 @@
 doctype html
 
 html
-  head
-    include includes/metas.jade
+head
+  include includes/metas.jade
     
-    link(href="http://fonts.googleapis.com/css?family=Kotta+One|Cantarell:400,700" rel="stylesheet" type="text/css")
+  link(href="http://fonts.googleapis.com/css?family=Kotta+One|Cantarell:400,700" rel="stylesheet" type="text/css")
 
-    link(rel="stylesheet" href="/css/presentational-only.css")
-    link(rel="stylesheet" href="/css/full-background-image.css")
+  link(rel="stylesheet" href="/css/presentational-only.css")
+  link(rel="stylesheet" href="/css/full-background-image.css")
 
-    title=title
+  title=title
 body
-  nav(class="navbar" id="top")
+  nav(id="top" class="navbar")
     div(class="inner")
       a(href="http://protesasistemascontraincendio.com/") Website
       a(href="#") Acerca de
 
   header(class="container")
     section(class="content")
-      h1 SGRT
-      h2 Sistema para la Gestión de Reportes de Trabajo
-      p
-        a(class="button" id="load-more-content" href="/login") INICIAR SESIÓN
+      div(style="background-color: rgba(0, 0, 0, 0.3); padding-bottom: 10px;")
+        h1 SGRT
+        h2 Sistema para la Gestión de Reportes de Trabajo
+        p
+          a(id="load-more-content" href="/login" class="button") INICIAR SESIÓN
         
-      div(class="only-text") Copyright © 2017 PROTESA Sistemas Contra Incendio.
+        div(class="only-text") Copyright © 2017 PROTESA Sistemas Contra Incendio.

@@ -1,29 +1,29 @@
-div(id="loginModal" class="modal fade" tabindex="-1" role="dialog")
+div(id="loginModal" tabindex="-1" role="dialog" class="modal fade")
   div(class="modal-dialog modal-sm")
     div(class="modal-content")
     
       div(class="modal-header")
-        button(type="button" class="close" data-dismiss="modal" aria-label="Cerrar")
+        button(type="button" data-dismiss="modal" aria-label="Cerrar" class="close")
           span(aria-hidden='true') &times;
-        i(class="fa fa-sign-in fa-3x" aria-hidden="true" style="float: left; padding-right: 10px;")
+        i(aria-hidden="true" style="float: left; padding-right: 10px;" class="fa fa-sign-in fa-3x")
         h2(class="modal-title") SGRT
         h4(class="modal-title") Sistema para la Gestión de Reportes de Trabajo
     
       div(class="modal-body")
-        form(class="form-horizontal" action="/login" method="post")
+        form(action="/login" method="post" class="form-horizontal" )
           h3 Iniciar sesión
           div(class="form-group")
             div(class="col-sm-12")
               div(class="input-group")
                 span(class="input-group-addon")
                   i(class="glyphicon glyphicon-envelope")
-                input(type="text" class="form-control" placeholder="Correo electrónico" name="correoElectronico")
+                input(type="text" placeholder="Correo electrónico" name="correoElectronico" class="form-control")
           div(class="form-group")
             div(class="col-sm-12")
               div(class="input-group")
                 span(class="input-group-addon")
                   i(class="glyphicon glyphicon-lock")
-                input(type="password" class="form-control" placeholder="Contraseña" name="contrasena")
+                input(type="password" placeholder="Contraseña" name="contrasena" class="form-control") 
           div(class="form-group")
             div(class="col-sm-12")
               input(type="checkbox" class="js-switch")

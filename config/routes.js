@@ -14,10 +14,30 @@ module.exports = function(app, passport) {
 
   app.get('/main', isLoggedIn, function(req, res){
     res.render('main', {
-      title: 'SGRT | Dashboard',
+      title: 'SGRT | Tablero de información',
+      titleView: 'Tablero de información',
       user: req.user,
-      view: 'dashboard',
-      titleView: 'Dashboard'
+      view: 'dashboard'
+    });
+  });
+
+  app.get('/publicar/reportes', isLoggedIn, function(req, res){
+    res.render('main', {
+      title: 'SGRT | Publicar Reportes',
+      titleView: 'Publicar Reportes',
+      user: req.user,
+      view: 'reports'
+    });
+  });
+
+
+
+  app.get('/calendar', isLoggedIn, function(req, res) {
+    res.render('main', {
+      title: 'SGRT | Calendario',
+      titleView: 'Calendario',
+      user: req.user,
+      view: 'calendar',
     });
   });
 

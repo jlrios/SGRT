@@ -14,18 +14,18 @@ var cookieParser = require('cookie-parser');
 var dataBase = require('./config/database');
 
 // Establecer la carpeta para las vistas y el engine para las mismas.
-app.set("views", __dirname + "/app/views");
-app.set("view engine", "jade");
+app.set('views', __dirname + '/app/views');
+app.set('view engine', 'jade');
 
-// Se le indica a express que debe utilizar el directorio public.
-app.use(express.static(__dirname + "/public"));
+// Se le indica a Express que debe utilizar el directorio public.
+app.use(express.static(__dirname + '/public'));
 
 // Conectarse a la base de datos.
 mongoose.connect(dataBase.url);
 
-require("./config/connect")(passport);
+require('./config/connect')(passport);
 
-app.use(logger("dev"));
+app.use(logger('dev'));
 app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: "1nY0urR00m$#!"
+  secret: '1nY0urR00m$#!'
 }));
 
 app.use(passport.initialize());
@@ -44,7 +44,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Carga de rutas.
-require("./config/routes")(app, passport);
+require('./config/routes')(app, passport);
 
 http.listen(port);
-console.log("SGRT por el puerto *:8080...");
+console.log('SGRT por el puerto *:8080...');
