@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app="appSGRT")
   head
     include includes/metas
     
@@ -83,6 +83,9 @@ html
     script(src="/js/custom.min.js")
     script(src="/js/switchery/switchery.min.js")
     script(src="/js/bootstrap-select/bootstrap-select.min.js")
+    script(src="/js/angular.min.js")
+    script(src="/js/angular-route.min.js")
+    script(src="/js/components/app.js")
     
     script.
       $(window).load(function() {

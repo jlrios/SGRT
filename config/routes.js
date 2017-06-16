@@ -30,7 +30,14 @@ module.exports = function(app, passport) {
     });
   });
 
-
+  app.get('/operaciones/reportes', isLoggedIn, function(req, res) {
+    res.render('main', {
+      title: 'SGRT | Eliminar y/o editar Reportes',
+      titleView: 'Eliminar y/o editar Reportes',
+      user: req.user,
+      view: 'delete-edit-reports'
+    });
+  });
 
   app.get('/calendar', isLoggedIn, function(req, res) {
     res.render('main', {
@@ -38,6 +45,15 @@ module.exports = function(app, passport) {
       titleView: 'Calendario',
       user: req.user,
       view: 'calendar',
+    });
+  });
+
+  app.get('/catalogos/clientes', isLoggedIn, function(req, res) {
+    res.render('main', {
+      title: 'SGRT | Catálogo de Clientes',
+      titleView: 'Catálogo de Clientes',
+      user: req.user,
+      view: 'customers-list'
     });
   });
 
@@ -52,7 +68,6 @@ module.exports = function(app, passport) {
     failureRedirect: "/",
     failureFlash: true
   }));
-
 } // Fin module.
 
 function isLoggedIn(req, res, next) {
